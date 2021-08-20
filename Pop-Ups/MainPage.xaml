@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="xamarinFormsApp.MainPage" BackgroundColor="#FFFAF9F9"
+             SizeChanged="ContentPage_SizeChanged">
+
+    <Grid>
+
+        <Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Rectangle VerticalOptions="Center" HorizontalOptions="Center" Fill="#FF005FB9" HeightRequest="60"
+                    WidthRequest="100" RadiusX="20" RadiusY="20"/>
+            <Label x:Name="label1" VerticalOptions="Center" HorizontalOptions="Center"
+                    TextColor="White" Text="Click"/>
+        </Grid>
+        
+        
+        <Grid x:Name="myPopUp">
+            <skia:SKCanvasView x:Name="BgShadow" PaintSurface="SKCanvasView_PaintSurface"/>
+
+            <Grid x:Name="grid2" ColumnDefinitions="*,*" RowDefinitions="30,*,50" VerticalOptions="Center"
+              HorizontalOptions="Center" HeightRequest="160" WidthRequest="280"  ColumnSpacing="0"
+              RowSpacing="0" >
+                <Label x:Name="labelTitle"  Text="Title" FontSize="18" FontAttributes="Bold" Grid.ColumnSpan="2"
+                    Margin="13,10,13,0"/>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="13" ColumnDefinitions="*,4*">
+                    <Path Stroke="#FF005FB9" VerticalOptions="Center" HeightRequest="30" 
+                          Aspect="Uniform" StrokeThickness="2"  Data="M18.884629,0.89998891
+                          L3.4969181,0.70000001 C3.4969181,0.70000001 -1.6281701,15.825419 1.9969458,22.950043 
+                          5.6220618,30.074666 10.996824,29.450067 10.996824,29.450067 10.996824,29.450067 
+                          17.246281,29.324675 20.246595,22.324751 23.246908,15.324828 18.884629,0.89998891 
+                          18.884629,0.89998891 z M10.949009,29.983967 L11.083003,40.366992
+                          M3.5310063,40.651008 L18.497006,40.651008 M0.78400104,12.318988 L21.134006,12.318988" />
+
+                    <Label  Text="Lorem ipsum dolor sit amet, consectetuer adipici elit, sed"  VerticalTextAlignment="Center"
+                           Grid.Column="1"/>
+                </Grid>
+                
+                
+
+                <Button ClassId="ok" x:Name="OkButton" Text="OK"  Grid.Row="2" CornerRadius="7" Margin="13,5,5,10"
+                    BackgroundColor="#FF005FB9" TextColor="#FFFAF9F9" Clicked="Button_Clicked_1"/>
+
+                <Rectangle  x:Name="rect" Fill="#B1B1B1" Grid.Column="1" Grid.Row="2" RadiusX="7" RadiusY="7" 
+                      Margin="5,6,13,8"  />
+                <Button ClassId="cancel" x:Name="CancelButton" Text="Cancel"  Grid.Row="2" Grid.Column="1" Clicked="Button_Clicked_1"
+                    CornerRadius="7" BackgroundColor="#FFFEFEFE" Margin="5,5,13,10"/>
+
+
+
+            </Grid>
+        </Grid>
+       
+
+    </Grid>
+</ContentPage>
